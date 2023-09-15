@@ -14,7 +14,7 @@
     }
 
     th, td {
-        padding: 8px;
+        padding: 3px;
         text-align: left;
     }
 
@@ -64,14 +64,15 @@
             <td><input type="checkbox" id="potato" onclick="reflectInput()"><label>ほっこりポテト</label></td>
         </tr>
    </table>
-  
-   <table id="canCook"><caption>作れるレシピ -Recipes You Can Cook-</caption>
+  <br>
+   <table id="canCook"><caption style="font-size: 25px;">作れるレシピ -Recipes You Can Cook-</caption>
         <tr>
             <th>レシピ名</th>
             <th>材料</th>
         </tr>
    </table>
-   <table id="canNotCook"><caption>作れないレシピ -Recipes You Still Can Not Cook-</caption>
+   <br>
+   <table id="canNotCook"><caption style="font-size: 25px;">作れないレシピ -Recipes You Still Can Not Cook-</caption>
     <tr>
         <th>レシピ名</th>
         <th>材料</th>
@@ -220,7 +221,7 @@
         if (content.length===0){
             content = "None"
         }
-        cell1.innerHTML = " {" + content + "}"
+        cell1.innerHTML = content
     }
 
     function getQueryString(){
