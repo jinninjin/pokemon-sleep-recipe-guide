@@ -34,6 +34,7 @@
  <body>
    <h1>PokemonSleepRecipeChecker</h1>
    <label id="error-label" style="color:red"></label>
+   <br>
    <label>入力した内容はURLに記憶されます。入力後にURLをメモしておけば、次回は入力不要です。</label>
    <br>
    <label>When you input the content, it gets saved as a URL. So if you have the URL, you won't need to input it again.</label>
@@ -45,6 +46,7 @@
    <input type="radio" name="dish-type" value=3 onclick="reflectInput()"><label>Drinks and Desserts</label>
    <br>
    <label>鍋の大きさ(Pot Size):</label><input type="text" id="pot-size" onblur="reflectInput()"><label id="pot-size-error" style="color:red"></label>
+   <label>integer[1~100]</label>
    <br>
    <table id="ingredients">
         <tr>
