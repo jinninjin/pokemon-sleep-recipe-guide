@@ -10,7 +10,7 @@
    <br>
    <label>入力した内容はURLに記憶されます。入力後にURLをメモしておけば、次回は入力不要です。</label>
    <br>
-   <label>you input the content, it gets saved as a URL, so if you have the URL, you won't need to input it again.</label>
+   <label>When you input the content, it gets saved as a URL, so if you have the URL, you won't need to input it again.</label>
    <br>
    <br>
    <label>dish-type:</label>
@@ -45,14 +45,14 @@
             <td><input type="checkbox" id="potato" onclick="reflectInput()"><label>ほっこりポテト</label></td>
         </tr>
    </table>
-   <label id="canCook-table-name">Recipes You Can Cook</label>
+   <label id="canCook-table-name">作れるレシピ -Recipes You Can Cook-</label>
    <table id="canCook"></table>
-   <label id="canNotCook-table-name">Recipes You Can Not Cook</label>
+   <label id="canNotCook-table-name">作れないレシピ -Recipes You Still Can Not Cook-</label>
    <table id="canNotCook"></table>
 
  </body>
  <script>
-    const URL = "https://jinninjin.github.io/pokemon-sleep-recipe-guide/main.html"
+    const URL = "./main.html"
     const INGREDIENTS_LIST = ["negi", "kinoko", "egg", "potato", "ringo", "herv", "meat", "milk", "mitsu", "oil", "ginger", "tomato", "cacao", "sippo", "daizu"]
     const INGREDIENTS = {
         negi:{name:"ふといながねぎ", order:1},
@@ -181,8 +181,18 @@
     function addToTable(recipe, tableId){
         let table = document.getElementById(tableId)
         let newRow = table.insertRow(0)
-        let cell = newRow.insertCell(0)
-        cell.innerHTML = recipe.name
+        let cell0 = newRow.insertCell(0)
+        let cell1 = newRow.insertCell(1)
+        cell0.innerHTML = recipe.name
+        let content = []
+        for (ingredient in recipe.ingredients){
+            content.push(INGREDIENTS[ingredient]["name"] + ":" + recipe["ingredients"][ingredient])
+        }
+        content.join(",")
+        if (content.length===0){
+            content = "None"
+        }
+        cell1.innerHTML = " : {" + content + "}"
     }
 
     function getQueryString(){
@@ -285,8 +295,6 @@
             }
         }
     }
-
-
     function reflectInput(){
         hideErrors()
         if (validate()===false){
@@ -296,7 +304,6 @@
         let url = URL + "?" + queryString
         redirect(url)
     }
-
     function redirect(url){
         window.location.href = url
     }
@@ -309,7 +316,6 @@
             switchErrorMessage("pot-size-error", "on", "Pot-Size must be numeric from 0 to 100.")
         }
     }
-
     function validatePotSize(){
         const value = document.getElementById("pot-size").value
         if (isNaN(value)){
