@@ -14,7 +14,7 @@
     }
 
     th, td {
-        padding: 3px;
+        padding: 1px;
         text-align: left;
     }
 
@@ -25,19 +25,18 @@
  </head>
  <body>
    <h1>PokemonSleepRecipeChecker</h1>
-   <label id="error-label" style="color:red;font-size:30px"></label>
-   <br>
+   <label id="error-label" style="color:red"></label>
    <label>入力した内容はURLに記憶されます。入力後にURLをメモしておけば、次回は入力不要です。</label>
    <br>
    <label>When you input the content, it gets saved as a URL. So if you have the URL, you won't need to input it again.</label>
    <br>
    <br>
-   <label>dish-type:</label>
+   <label>料理の種類(Dish Type):</label>
    <input type="radio" name="dish-type" value=1 onclick="reflectInput()" checked><label>Curry and Stew</label>
    <input type="radio" name="dish-type" value=2 onclick="reflectInput()"><label>Salads</label>
    <input type="radio" name="dish-type" value=3 onclick="reflectInput()"><label>Drinks and Desserts</label>
    <br>
-   <label>Pot Size:</label><input type="text" id="pot-size" onblur="reflectInput()"><label id="pot-size-error" style="color:red"></label>
+   <label>鍋の大きさ(Pot Size):</label><input type="text" id="pot-size" onblur="reflectInput()"><label id="pot-size-error" style="color:red"></label>
    <br>
    <table id="ingredients">
         <tr>
@@ -69,6 +68,7 @@
         <tr>
             <th>レシピ名</th>
             <th>材料</th>
+            <th>合計数</th>
         </tr>
    </table>
    <br>
@@ -76,6 +76,7 @@
     <tr>
         <th>レシピ名</th>
         <th>材料</th>
+        <th>合計数</th>
     </tr>
    </table>
 
@@ -212,6 +213,7 @@
         let newRow = table.insertRow(-1)
         let cell0 = newRow.insertCell(0)
         let cell1 = newRow.insertCell(1)
+        let cell2 = newRow.insertCell(2)
         cell0.innerHTML = recipe.name
         let content = []
         for (ingredient in recipe.ingredients){
@@ -222,6 +224,7 @@
             content = "None"
         }
         cell1.innerHTML = content
+        cell2.innerHTML = recipe["sum"]
     }
 
     function getQueryString(){
