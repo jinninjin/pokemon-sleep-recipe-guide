@@ -29,7 +29,6 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-DCWBW5BGEJ');
 </script>
  <body>
@@ -41,7 +40,7 @@
    <br>
    <br>
    <label>料理の種類(Dish Type):</label>
-   <input type="radio" name="dish-type" value=1 onclick="reflectInput()" checked><label>Curry and Stew</label>
+   <input type="radio" name="dish-type" value=1 onclick="reflectInput()" checked><label>Curries and Stews</label>
    <input type="radio" name="dish-type" value=2 onclick="reflectInput()"><label>Salads</label>
    <input type="radio" name="dish-type" value=3 onclick="reflectInput()"><label>Drinks and Desserts</label>
    <br>
@@ -110,7 +109,6 @@
         sippo:{name:"おいしいシッポ", order:14},
         daizu:{name:"ワカクサ大豆", order:15}
     }
-
     const RECIPE_TYPE = {1:"CurriesAndStews", 2:"Salads", 3:"DrinksAndDesserts"}
     const RECIPE_LIST = {
         1:["recipe101", "recipe102", "recipe103", "recipe104", "recipe105", "recipe106", "recipe107", "recipe108", "recipe109", "recipe110",
@@ -172,9 +170,6 @@
         recipe315:{name:"ふくつのジンジャークッキー", order:15, type:3, ingredients:{mitsu:14, ginger:12, cacao:5, egg:4}, sum:35},
         recipe316:{name:"ネロリ博士のヒーリングティー", order:16, type:3, ingredients:{ginger:11, ringo:15, kinoko:9}, sum:35},
         recipe317:{name:"プリンのプリンアラモード", order:17, type:3, ingredients:{mitsu:20, egg:15, milk:10, ringo:10}, sum:55}
-
-
-
     }
     const QUERYSTRING_TYPE = ["dishType", "potSize", "ingredients"]
     const POT_SIZE_MAX = 100
