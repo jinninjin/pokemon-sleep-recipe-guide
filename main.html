@@ -102,21 +102,21 @@
     const URL = "./main.html"
     const INGREDIENTS_LIST = ["negi", "kinoko", "egg", "potato", "ringo", "herv", "meat", "milk", "mitsu", "oil", "ginger", "tomato", "cacao", "sippo", "daizu"]
     const INGREDIENTS = {
-        negi:{name:"ふといながねぎ", order:1},
-        kinoko:{name:"あじわいキノコ", order:2},
-        egg:{name:"とくせんエッグ", order:3},
-        potato:{name:"ほっこりポテト", order:4},
-        ringo:{name:"とくせんリンゴ", order:5},
-        herv:{name:"げきからハーブ", order:6},
-        meat:{name:"マメミート", order:7},
-        milk:{name:"モーモーミルク", order:8},
-        mitsu:{name:"あまいミツ", order:9},
-        oil:{name:"ピュアなオイル", order:10},
-        ginger:{name:"あったかジンジャー", order:11},
-        tomato:{name:"あんみんトマト", order:12},
-        cacao:{name:"リラックスカカオ", order:13},
-        sippo:{name:"おいしいシッポ", order:14},
-        daizu:{name:"ワカクサ大豆", order:15}
+        negi	:{name:"ふといながねぎ"},
+        kinoko	:{name:"あじわいキノコ"},
+        egg		:{name:"とくせんエッグ"},
+        potato	:{name:"ほっこりポテト"},
+        ringo	:{name:"とくせんリンゴ"},
+        herv	:{name:"げきからハーブ"},
+        meat	:{name:"マメミート"},
+        milk	:{name:"モーモーミルク"},
+        mitsu	:{name:"あまいミツ"},
+        oil		:{name:"ピュアなオイル"},
+        ginger	:{name:"あったかジンジャー"},
+        tomato	:{name:"あんみんトマト"},
+        cacao	:{name:"リラックスカカオ"},
+        sippo	:{name:"おいしいシッポ"},
+        daizu	:{name:"ワカクサ大豆"}
     }
     const RECIPE_TYPE = {1:"CurriesAndStews", 2:"Salads", 3:"DrinksAndDesserts"}
     const RECIPE_LIST = {
@@ -128,78 +128,152 @@
             "recipe311", "recipe312", "recipe313", "recipe314", "recipe315", "recipe316", "recipe317"]
     }
     const RECIPE_NAMES = {
-        recipe101:{name:"ごちゃまぜカレー", order:1, type:1, ingredients:{}, sum:0},
-        recipe102:{name:"とくせんリンゴカレー", order:2, type:1, ingredients:{ringo:7}, sum:7},
-        recipe103:{name:"たんじゅんホワイトシチュー", order:3, type:1, ingredients:{milk:7}, sum:7},
-        recipe104:{name:"ベイビィハニーカレー", order:4, type:1, ingredients:{mitsu:7}, sum:7},
-        recipe105:{name:"マメバーグカレー", order:5, type:1, ingredients:{meat:7}, sum:7},
-        recipe106:{name:"満腹チーズカレー", order:6, type:1, ingredients:{milk:8, meat:8}, sum:16},
-        recipe107:{name:"ひでりカツカレー", order:7, type:1, ingredients:{meat:10, oil:5}, sum:15},
-        recipe108:{name:"サンパワートマトカレー", order:8, type:1, ingredients:{herv:5, tomato:10}, sum:15},
-        recipe109:{name:"とろけるオムカレー", order:9, type:1, ingredients:{egg:10, tomato:5}, sum:15},
-        recipe110:{name:"ほっこりポテトシチュー", order:10, type:1, ingredients:{milk:10, potato:8, kinoko:4}, sum:22},
-        recipe111:{name:"ビルドアップマメカレー", order:11, type:1, ingredients:{daizu:12, meat:6, egg:4, herv:4}, sum:26},
-        recipe112:{name:"キノコのほうしカレー", order:12, type:1, ingredients:{kinoko:14, potato:9}, sum:23},
-        recipe113:{name:"エッグボムカレー", order:13, type:1, ingredients:{mitsu:12, ringo:11, egg:8, potato:4}, sum:35},
-        recipe114:{name:"げきかれネギカレー", order:14, type:1, ingredients:{negi:14, ginger:10, herv:8}, sum:32},
-        recipe115:{name:"にんじゃカレー", order:15, type:1, ingredients:{daizu:15, meat:9, negi:9, kinoko:5}, sum:38},
-        recipe116:{name:"ヤドンのしっぽカレー", order:16, type:1, ingredients:{sippo:8, herv:25}, sum:33},
-        recipe117:{name:"ぜったいねむりバターカレー", order:17, type:1, ingredients:{potato:18, tomato:15, cacao:12, milk:10}, sum:55},
-        recipe201:{name:"ごちゃまぜサラダ", order:1, type:2, ingredients:{}, sum:0},
-        recipe202:{name:"とくせんリンゴサラダ", order:2, type:2, ingredients:{ringo:8}, sum:8},
-        recipe203:{name:"マメハムサラダ", order:3, type:2, ingredients:{meat:8}, sum:8},
-        recipe204:{name:"あんみんマトサラダ", order:4, type:2, ingredients:{tomato:8}, sum:8},
-        recipe205:{name:"ゆきかきシーザーサラダ", order:5, type:2, ingredients:{milk:10, meat:6}, sum:16},
-        recipe206:{name:"うるおいとうふサラダ", order:6, type:2, ingredients:{daizu:10, tomato:6}, sum:16},
-        recipe207:{name:"ねっぷうとうふサラダ", order:7, type:2, ingredients:{herv:6, daizu:10}, sum:16},
-        recipe208:{name:"メロメロりんごのチーズサラダ", order:8, type:2, ingredients:{ringo:15, milk:5, oil:3}, sum:23},
-        recipe209:{name:"めんえきネギサラダ", order:9, type:2, ingredients:{negi:10, ginger:5}, sum:15},
-        recipe210:{name:"モーモーカプレーゼ", order:10, type:2, ingredients:{milk:12, tomato:6, oil:5}, sum:23},
-        recipe211:{name:"からげんきサラダ", order:11, type:2, ingredients:{meat:9, ginger:6, egg:5, potato:3}, sum:23},
-        recipe212:{name:"ムラっけチョコサラダ", order:12, type:2, ingredients:{cacao:14, meat:9}, sum:23},
-        recipe213:{name:"おおぐいポテトサラダ", order:13, type:2, ingredients:{potato:14, egg:9, meat:7, ringo:6}, sum:36},
-        recipe214:{name:"オーバーヒートサラダ", order:14, type:2, ingredients:{herv:17, ginger:10, oil:8}, sum:35},
-        recipe215:{name:"キノコのほうしサラダ", order:15, type:2, ingredients:{kinoko:17, tomato:8, oil:8}, sum:33},
-        recipe216:{name:"ヤドンのしっぽペッパーサラダ", order:16, type:2, ingredients:{sippo:10, herv:10, oil:15}, sum:35},
-        recipe217:{name:"忍者サラダ", order:17, type:2, ingredients:{daizu:15, kinoko:12, negi:15, ginger:11}, sum:53},
-        recipe301:{name:"ごちゃまぜジュース", order:1, type:3, ingredients:{}, sum:0},
-        recipe302:{name:"モーモーホットミルク", order:2, type:3, ingredients:{milk:7}, sum:7},
-        recipe303:{name:"とくせんリンゴジュース", order:3, type:3, ingredients:{ringo:8}, sum:8},
-        recipe304:{name:"クラフトサイコソーダ", order:4, type:3, ingredients:{mitsu:9}, sum:9},
-        recipe305:{name:"ねがいごとアップルパイ", order:5, type:3, ingredients:{ringo:12, milk:4}, sum:16},
-        recipe306:{name:"じゅくせいスイートポテト", order:6, type:3, ingredients:{potato:9, milk:5}, sum:14},
-        recipe307:{name:"ひのこのジンジャーティー", order:7, type:3, ingredients:{ginger:9, ringo:7}, sum:16},
-        recipe308:{name:"マイペースやさいジュース", order:8, type:3, ingredients:{tomato:9, ringo:7}, sum:16},
-        recipe309:{name:"かるわざソイケーキ", order:9, type:3, ingredients:{egg:8, daizu:7}, sum:15},
-        recipe310:{name:"おおきいマラサダ", order:10, type:3, ingredients:{oil:10, milk:7, mitsu:6}, sum:23},
-        recipe311:{name:"はりきりプロテインスムージー", order:11, type:3, ingredients:{daizu:15, cacao:8}, sum:23},
-        recipe312:{name:"ちからもちソイドーナッツ", order:12, type:3, ingredients:{oil:9, daizu:6, cacao:7}, sum:22},
-        recipe313:{name:"あまいかおりのチョコケーキ", order:13, type:3, ingredients:{mitsu:9, cacao:8, milk:7}, sum:24},
-        recipe314:{name:"あくまのキッスフルーツオレ", order:14, type:3, ingredients:{ringo:11, milk:9, mitsu:7, cacao:8}, sum:35},
-        recipe315:{name:"ふくつのジンジャークッキー", order:15, type:3, ingredients:{mitsu:14, ginger:12, cacao:5, egg:4}, sum:35},
-        recipe316:{name:"ネロリ博士のヒーリングティー", order:16, type:3, ingredients:{ginger:11, ringo:15, kinoko:9}, sum:35},
-        recipe317:{name:"プリンのプリンアラモード", order:17, type:3, ingredients:{mitsu:20, egg:15, milk:10, ringo:10}, sum:55}
+        recipe101:{name:"ごちゃまぜカレー", ingredients:{}, sum:0},
+        recipe102:{name:"とくせんリンゴカレー", ingredients:{ringo:7}, sum:7},
+        recipe103:{name:"たんじゅんホワイトシチュー", ingredients:{milk:7}, sum:7},
+        recipe104:{name:"ベイビィハニーカレー", ingredients:{mitsu:7}, sum:7},
+        recipe105:{name:"マメバーグカレー", ingredients:{meat:7}, sum:7},
+        recipe106:{name:"満腹チーズカレー", ingredients:{milk:8, meat:8}, sum:16},
+        recipe107:{name:"ひでりカツカレー", ingredients:{meat:10, oil:5}, sum:15},
+        recipe108:{name:"サンパワートマトカレー", ingredients:{herv:5, tomato:10}, sum:15},
+        recipe109:{name:"とろけるオムカレー", ingredients:{egg:10, tomato:5}, sum:15},
+        recipe110:{name:"ほっこりポテトシチュー", ingredients:{milk:10, potato:8, kinoko:4}, sum:22},
+        recipe111:{name:"ビルドアップマメカレー", ingredients:{daizu:12, meat:6, egg:4, herv:4}, sum:26},
+        recipe112:{name:"キノコのほうしカレー", ingredients:{kinoko:14, potato:9}, sum:23},
+        recipe113:{name:"エッグボムカレー", ingredients:{mitsu:12, ringo:11, egg:8, potato:4}, sum:35},
+        recipe114:{name:"げきかれネギカレー", ingredients:{negi:14, ginger:10, herv:8}, sum:32},
+        recipe115:{name:"にんじゃカレー", ingredients:{daizu:15, meat:9, negi:9, kinoko:5}, sum:38},
+        recipe116:{name:"ヤドンのしっぽカレー", ingredients:{sippo:8, herv:25}, sum:33},
+        recipe117:{name:"ぜったいねむりバターカレー", ingredients:{potato:18, tomato:15, cacao:12, milk:10}, sum:55},
+        recipe201:{name:"ごちゃまぜサラダ", ingredients:{}, sum:0},
+        recipe202:{name:"とくせんリンゴサラダ", ingredients:{ringo:8}, sum:8},
+        recipe203:{name:"マメハムサラダ", ingredients:{meat:8}, sum:8},
+        recipe204:{name:"あんみんマトサラダ", ingredients:{tomato:8}, sum:8},
+        recipe205:{name:"ゆきかきシーザーサラダ", ingredients:{milk:10, meat:6}, sum:16},
+        recipe206:{name:"うるおいとうふサラダ", ingredients:{daizu:10, tomato:6}, sum:16},
+        recipe207:{name:"ねっぷうとうふサラダ", ingredients:{herv:6, daizu:10}, sum:16},
+        recipe208:{name:"メロメロりんごのチーズサラダ", ingredients:{ringo:15, milk:5, oil:3}, sum:23},
+        recipe209:{name:"めんえきネギサラダ", ingredients:{negi:10, ginger:5}, sum:15},
+        recipe210:{name:"モーモーカプレーゼ", ingredients:{milk:12, tomato:6, oil:5}, sum:23},
+        recipe211:{name:"からげんきサラダ", ingredients:{meat:9, ginger:6, egg:5, potato:3}, sum:23},
+        recipe212:{name:"ムラっけチョコサラダ", ingredients:{cacao:14, meat:9}, sum:23},
+        recipe213:{name:"おおぐいポテトサラダ", ingredients:{potato:14, egg:9, meat:7, ringo:6}, sum:36},
+        recipe214:{name:"オーバーヒートサラダ", ingredients:{herv:17, ginger:10, oil:8}, sum:35},
+        recipe215:{name:"キノコのほうしサラダ", ingredients:{kinoko:17, tomato:8, oil:8}, sum:33},
+        recipe216:{name:"ヤドンのしっぽペッパーサラダ", ingredients:{sippo:10, herv:10, oil:15}, sum:35},
+        recipe217:{name:"忍者サラダ", ingredients:{daizu:15, kinoko:12, negi:15, ginger:11}, sum:53},
+        recipe301:{name:"ごちゃまぜジュース", ingredients:{}, sum:0},
+        recipe302:{name:"モーモーホットミルク", ingredients:{milk:7}, sum:7},
+        recipe303:{name:"とくせんリンゴジュース", ingredients:{ringo:8}, sum:8},
+        recipe304:{name:"クラフトサイコソーダ", ingredients:{mitsu:9}, sum:9},
+        recipe305:{name:"ねがいごとアップルパイ", ingredients:{ringo:12, milk:4}, sum:16},
+        recipe306:{name:"じゅくせいスイートポテト", ingredients:{potato:9, milk:5}, sum:14},
+        recipe307:{name:"ひのこのジンジャーティー", ingredients:{ginger:9, ringo:7}, sum:16},
+        recipe308:{name:"マイペースやさいジュース", ingredients:{tomato:9, ringo:7}, sum:16},
+        recipe309:{name:"かるわざソイケーキ", ingredients:{egg:8, daizu:7}, sum:15},
+        recipe310:{name:"おおきいマラサダ", ingredients:{oil:10, milk:7, mitsu:6}, sum:23},
+        recipe311:{name:"はりきりプロテインスムージー", ingredients:{daizu:15, cacao:8}, sum:23},
+        recipe312:{name:"ちからもちソイドーナッツ", ingredients:{oil:9, daizu:6, cacao:7}, sum:22},
+        recipe313:{name:"あまいかおりのチョコケーキ", ingredients:{mitsu:9, cacao:8, milk:7}, sum:24},
+        recipe314:{name:"あくまのキッスフルーツオレ", ingredients:{ringo:11, milk:9, mitsu:7, cacao:8}, sum:35},
+        recipe315:{name:"ふくつのジンジャークッキー", ingredients:{mitsu:14, ginger:12, cacao:5, egg:4}, sum:35},
+        recipe316:{name:"ネロリ博士のヒーリングティー", ingredients:{ginger:11, ringo:15, kinoko:9}, sum:35},
+        recipe317:{name:"プリンのプリンアラモード", ingredients:{mitsu:20, egg:15, milk:10, ringo:10}, sum:55}
     }
     const QUERYSTRING_TYPE = ["dishType", "potSize", "ingredients"]
+    const POT_SIZE_MIN = 0
     const POT_SIZE_MAX = 100
 
     window.addEventListener("load", function(){
-        try {
-            hideErrors()
-            const queryString = getQueryString()
-            let interpretedQueryString = interpretQueryString(queryString)
-            validateQueryString(interpretedQueryString)
-            reflectQueryString(interpretedQueryString)
-            setTables(interpretedQueryString)
-        } catch (error) {
-            document.getElementById("error-label").innerHTML = "INVALID URL!"
+        try{
+            const queryString = (() => {
+                const queryStringWithQuestion = window.location.search
+                if (queryStringWithQuestion.length===0){
+                    return ""
+                }else{
+                    return queryStringWithQuestion.substring(1)
+                }
+            })()
+            validateQueryString(queryString)
+            reflectQueryStringOnScreen(queryString)
+            showTable(queryString)
+        }catch(error){
+            showErrorMessage()
         }
-
     })
-    function setTables(interpretedQueryString){
-        const dishType = interpretedQueryString.dishType
-        const potSize = interpretedQueryString.potSize
-        const ingredientsState = interpretedQueryString.ingredients
+    function validateQueryString(queryString){
+        const dishType = getValueFromQueryString(queryString, "dishType")
+        const potSize = getValueFromQueryString(queryString, "potSize")
+        const ingredients = getValueFromQueryString(queryString, "ingredients")
+        if(!dishType in RECIPE_TYPE){throw "error"}
+        if(potSize<POT_SIZE_MIN || POT_SIZE_MAX<potSize){throw "error"}
+        if(ingredients.length!==INGREDIENTS_LIST.length){
+            const formattedIngredients = (ingredients + "0".repeat(INGREDIENTS_LIST.length)).substring(0, INGREDIENTS_LIST.length)
+            const url = URL + "?dishType=" + dishType + "&potSize=" + potSize + "&ingredients=" + formattedIngredients
+            redirect(url)
+        }
+        if(containsOnly(ingredients,"01")===false){throw "error"}
+    }
+    function getValueFromQueryString(queryString, inputKey){
+        const keyValueList = queryString.split("&")
+        for(let i=0; i<keyValueList.length; i++){
+            keyValue = keyValueList[i].split("=")
+            const key = keyValue[0]
+            const value = keyValue[1]
+            if (key===inputKey){
+                return value
+            }
+        }
+    }
+    function containsOnly(str, elem){
+        const elems = (() => {
+            const retVal = new Set()
+            for (let i=0; i<elem.length; i++){
+                retVal.add(elem[i])
+            }
+            return retVal
+        })()
+        for (let i=0; i<str.length; i++){
+            if (elems.has(str[i])){}else{return false}
+        }
+        return true
+    }
+    function reflectQueryStringOnScreen(queryString){
+        const dishType = getValueFromQueryString(queryString, "dishType")
+        const potSize = getValueFromQueryString(queryString, "potSize")
+        const ingredients = getValueFromQueryString(queryString, "ingredients")
+        setDishType(dishType)
+        setPotSize(potSize)
+        setIngredients(ingredients)
+    }
+    function setDishType(type){
+        const elems = document.getElementsByName("dish-type")
+        for (elem in elems){
+            if (elem.value===type){
+                elem.checked = true
+            }else{
+                elem.checked = false
+            }
+        }
+    }
+    function setPotSize(size){
+        const elem = document.getElementById("pot-size")
+        elem.value = size
+    }
+    function setIngredients(ingredients){
+        for (let i=0; i<INGREDIENTS_LIST.length; i++){
+            const elem = document.getElementById(INGREDIENTS_LIST[i])
+            if (ingredients[i]==="1"){
+                elem.checked = true
+            }else{
+                elem.checked = false
+            }
+        }
+    }
+    function showTable(queryString){        
+        const dishType = getValueFromQueryString(queryString, "dishType")
+        const potSize = getValueFromQueryString(queryString, "potSize")
+        const ingredientsState = getValueFromQueryString(queryString, "ingredients")
         const recipeList = RECIPE_LIST[dishType]
         for(let i=0; i<recipeList.length; i++){
             let recipe = RECIPE_NAMES[recipeList[i]]
@@ -239,182 +313,59 @@
         cell1.innerHTML = content
         cell2.innerHTML = recipe["sum"]
     }
-
-    function getQueryString(){
-        return window.location.search
-    }
-    function validateQueryString(interpretedQueryString){
-        const dishType = interpretedQueryString["dishType"]
-        validateDishType(dishType)
-        const potSize = interpretedQueryString["potSize"]
-        validatePotSizeQS(potSize)
-        const ingredients = interpretedQueryString["ingredients"]
-        //長さを調整してリダイレクト
-        if (ingredients.length!==INGREDIENTS_LIST.length){
-            interpretedQueryString["ingredients"] = (interpretedQueryString["ingredients"] + "0".repeat(INGREDIENTS_LIST.length)).substring(0,INGREDIENTS_LIST.length)
-            url = createUrlFromQueryString(interpretedQueryString)
-            redirect(url)
-        }
-        validateIngredients(ingredients)
-    }
-    function createUrlFromQueryString(interpretedQueryString){
-        const dishType = "dishType=" + interpretedQueryString["dishType"]
-        const potSize = "potSize=" + interpretedQueryString["potSize"]
-        const ingredients = "ingredients=" + interpretedQueryString["ingredients"]
-        return URL + "?" + dishType + "&" + potSize + "&" + ingredients 
-    }
-    function validateDishType(type){
-        if (Number.isInteger(type)===true){
-            throw "error"
-        }
-        if (type<1 || RECIPE_TYPE.length<type){
-            throw "error"
-        }
-    }
-    function validatePotSizeQS(size){
-        if (Number.isInteger(size)===true){
-            throw "error"
-        }
-        if (size<1 || POT_SIZE_MAX<size){
-            throw "error"
-        }
-    }
-    function validateIngredients(string){
-        const ingredientsLength = INGREDIENTS_LIST.length 
-        if (string.length!==ingredientsLength){
-            //本来ならエラーにしたいが、画面側のアップデートにより正しい桁数が変わることが考えられるため、エラーにはしないこととする。
-        }
-        for (let i=0; i<ingredientsLength; i++){
-            if (string[i]==="0" || string[i]==="1"){
-                continue
-            }else{
-                throw "error"
-            }
-        }
-    }
-    function reflectQueryString(interpretedQueryString){
-        setDishType(interpretedQueryString.dishType)
-        setPotSize(interpretedQueryString.potSize)
-        setIngredients(interpretedQueryString.ingredients)
-    }
-    function setIngredients(string){
-        for (let i=0; i<INGREDIENTS_LIST.length; i++){
-            let ingredient = INGREDIENTS_LIST[i]
-            let state = string[i]
-            let elem = document.getElementById(ingredient)
-            if (state==="0"){
-                elem.checked = false
-            }else{
-                elem.checked = true
-            }
-        }
-    }
-    function setPotSize(size){
-        let elem = document.getElementById("pot-size")
-        elem.value = size
-    }
-    function interpretQueryString(queryString){
-        retVal = {}
-        for (let i=0; i<QUERYSTRING_TYPE.length; i++){
-            let type = QUERYSTRING_TYPE[i]
-            let typelength = type.length
-            let keyPosition = queryString.indexOf(type)
-            let start = keyPosition + queryString.substring(keyPosition).indexOf("=") + 1
-            if(i===QUERYSTRING_TYPE.length-1){
-                let value = queryString.substring(start)
-                retVal[type] = value
-            }else{
-                let end = start + queryString.substring(start).indexOf("&")
-                let value = queryString.substring(start, end)
-                retVal[type] = value
-            }           
-        }
-        return retVal
-    }
-    function setDishType(dishType){
-        let elems = document.getElementsByName("dish-type")
-        for (let i=0; i<elems.length; i++){
-            let elem = elems[i]
-            if (elem.value===dishType){
-                elem.checked = true
-            }
-        }
-    }
     function reflectInput(){
-        hideErrors()
-        if (validate()===false){
-            throw "error"
+        try{
+            validateInput()
+            const queryString = generateQueryString()
+            const url = URL + "?" + queryString
+            redirect(url)
+        }catch(error){
+            showErrorMessage()
         }
-        let queryString = createQueryString()
-        let url = URL + "?" + queryString
-        redirect(url)
+    }
+    function validateInput(){
+        validatePotSize()
+    }
+    function validatePotSize(){
+        const size = document.getElementById("pot-size").value
+        if (isNaN(size)){throw "error"}
+        if (size<POT_SIZE_MIN || POT_SIZE_MAX<size){throw "error"}
+    }
+    function generateQueryString(){
+        const potSize = (() => {
+            return document.getElementById("pot-size").value
+        })()
+        const dishType = (() => {
+            const elements = document.getElementsByName("dish-type")
+            const len = elements.length
+            for(let i=0; i<len; i++){
+                let elem = elements.item(i)
+                if (elem.checked===true){
+                    return elem.value
+                }
+            }
+        })()
+        const ingredients = (() => {
+            let retVal = ""
+            for (let i=0; i<INGREDIENTS_LIST.length; i++){
+                let elem = document.getElementById(INGREDIENTS_LIST[i])
+                if (elem.checked===true){
+                    retVal += "1"
+                }else{
+                    retVal += "0"
+                }
+            }
+            return retVal
+        })()
+        const queryString = "potSize=" + potSize + "&dishType=" + dishType + "&ingredients=" + ingredients
+        return queryString
     }
     function redirect(url){
         window.location.href = url
     }
-    function hideErrors(){
-        switchErrorMessage("error-label", "off")
-        switchErrorMessage("pot-size-error", "off")
-    }
-    function validate(){
-        if(validatePotSize()===false){
-            switchErrorMessage("pot-size-error", "on", "Pot-Size must be numeric from 0 to 100.")
-        }
-    }
-    function validatePotSize(){
-        const value = document.getElementById("pot-size").value
-        if (isNaN(value)){
-            throw "error"
-        }
-        if (value<0 || 100<value){
-            throw "error"
-        }
-        return true
-    }
-    function switchErrorMessage(id, state, message){
-        let elem = document.getElementById(id)
-        if (state==="on"){
-            elem.innerHTML = message
-        }else if(state==="off"){
-            elem.innerHTML = ""
-        }
-    }
-    function createQueryString(){
-        const dishType = getDishTypeQueryString()
-        const potSize = getPotSizeQueryString()
-        const ingredients = getIngredientsQueryString()
-        const returnQueryString = [dishType, potSize, ingredients].join("&")
-        return returnQueryString
-    }
-    function getDishTypeQueryString(){
-        const dishTypeId = getSelectedDishType()
-        return "dishType=" + dishTypeId
-    }
-    function getSelectedDishType(){
-        let elements = document.getElementsByName("dish-type")
-        let len = elements.length
-        for(let i=0; i<len; i++){
-            let elem = elements.item(i)
-            if (elem.checked===true){
-                return elem.value
-            }
-        }
-    }
-    function getPotSizeQueryString(){
-        let elem = document.getElementById("pot-size")
-        return "potSize=" + elem.value
-    }
-    function getIngredientsQueryString(){
-        let retVal = ""
-        for (let i=0; i<INGREDIENTS_LIST.length; i++){
-            let elem = document.getElementById(INGREDIENTS_LIST[i])
-            if (elem.checked===true){
-                retVal += "1"
-            }else{
-                retVal += "0"
-            }
-        }
-        return "ingredients=" + retVal
+    function showErrorMessage(){
+        let elem = document.getElementById("error-label")
+        elem.innerHTML = "Invalid Input or QueryString."
     }
  </script>
 </html>
