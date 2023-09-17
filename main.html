@@ -248,7 +248,8 @@
     }
     function setDishType(type){
         const elems = document.getElementsByName("dish-type")
-        for (elem in elems){
+        for (let i=0; i<elems.length; i++){
+            const elem = elems.item(i)
             if (elem.value===type){
                 elem.checked = true
             }else{
