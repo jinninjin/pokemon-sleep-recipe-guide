@@ -3,7 +3,6 @@
  <head>
   <meta charset="UTF-8">
   <meta name="description" lang="ja" content="ポケモンスリープであなたが作れるレシピ、まだ作れないレシピを簡単にチェックするツールです。">
-  <meta name="description" lang="en" content="Easily discover which recipes you can craft in PokemonSleep and which ones you cannot, all at your fingertips.">
   <title>PokemonSleepRecipeChecker</title>
   <style>
     table {
@@ -37,31 +36,25 @@
    <h1>PokemonSleepRecipeChecker</h1>
    <label id="error-label" style="color:red"></label>
    <br>
-   <label>鍋の大きさと、使用可能な食材を選択してください。入力するたびに、作ることのできるレシピが更新されていきます。</label>
+   <label>鍋の大きさと、使用可能な食材を選択してください。入力するたびに、作ることのできるレシピが更新ます。</label>
    <br>
    <label>また、入力した内容はURLに記憶されます。入力後にURLをメモしておけば、次回からは入力不要です。</label>
    <br>
-   <label>Please select the size of your pot and the available ingredients. As you input this information, the available recipes will be updated</label>
-    <br>
-   </label>
-   <label>When you input the content, it gets saved as a URL. So if you have the URL, you won't need to input it again.</label>
+   <input type="text" id="currentURL">
+   <button onclick="copyToClipboard()">URLをコピーする</button>
+   <label id="copy-message"></label>
    <br>
+   <label>料理の種類</label>
+   <input type="radio" name="dish-type" value=1 onclick="reflectInput()" checked><label>カレー・シチュー</label>
+   <input type="radio" name="dish-type" value=2 onclick="reflectInput()"><label>サラダ</label>
+   <input type="radio" name="dish-type" value=3 onclick="reflectInput()"><label>ドリンク・デザート</label>
    <br>
-   <label>料理の種類(Dish Type):</label>
-   <br>
-   <input type="radio" name="dish-type" value=1 onclick="reflectInput()" checked><label>カレー・シチュー(Curries and Stews)</label>
-   <br>
-   <input type="radio" name="dish-type" value=2 onclick="reflectInput()"><label>サラダ(Salads)</label>
-   <br>
-   <input type="radio" name="dish-type" value=3 onclick="reflectInput()"><label>ドリンク・デザート(Drinks and Desserts)</label>
-   <br>
-   <label>鍋の大きさ(Pot Size):</label>
-   <br>
+   <label>鍋の大きさ</label>
    <input type="text" id="pot-size" onblur="releaseDouble();validateAndReflectInput()"><label id="pot-size-error" style="color:red"></label>
-   <label>integer[1~100]</label>
-   <input type="checkbox" id="double-pot-size" onclick="reflectInput()"><label>一時的に2倍にする（日曜日用）Double Pot Size Tempoorarily(for Sunday)</label>
+   <label>[1~100]</label>
+   <input type="checkbox" id="double-pot-size" onclick="reflectInput()"><label>一時的に2倍にする（日曜日用）</label>
    <br>
-   <label>食材(Ingredients)</label>
+   <label>食材</label>
    <table id="ingredients">
         <tr>
             <td><input type="checkbox" id="egg" onclick="reflectInput()">とくせんエッグ<label></label></td>
@@ -88,7 +81,7 @@
         </tr>
    </table>
   <br>
-   <table id="canCook"><caption style="font-size: 25px;">作れるレシピ -Recipes You Can Cook-</caption>
+   <table id="canCook"><caption style="font-size: 25px;">作れるレシピ</caption>
         <tr>
             <th>レシピ名</th>
             <th>材料</th>
@@ -96,7 +89,7 @@
         </tr>
    </table>
    <br>
-   <table id="canNotCook"><caption style="font-size: 25px;">作れないレシピ -Recipes You Still Can Not Cook-</caption>
+   <table id="canNotCook"><caption style="font-size: 25px;">作れないレシピ</caption>
     <tr>
         <th>レシピ名</th>
         <th>材料</th>
@@ -205,6 +198,7 @@
             validateQueryString(queryString)
             reflectQueryStringOnScreen(queryString)
             showTable(queryString)
+            setURL()
         }catch(error){
             showErrorMessage()
         }
@@ -433,6 +427,19 @@
     function showErrorMessage(){
         let elem = document.getElementById("error-label")
         elem.innerHTML = "Invalid Input or QueryString."
+    }
+    function setURL(){
+        let elem = document.getElementById("currentURL")
+        const URL = window.location.href
+        elem.value = URL
+    }
+    function copyToClipboard(){
+        let targetURL = document.getElementById("currentURL")
+        targetURL.select()
+        document.execCommand("Copy")
+
+        document.getElementById("copy-message").innerHTML = "コピーしました"
+
     }
  </script>
 </html>
