@@ -44,12 +44,12 @@
    <button onclick="copyToClipboard()">URLをコピーする</button>
    <label id="copy-message"></label>
    <br>
-   <label>料理の種類</label>
-   <input type="radio" name="dish-type" value=1 onclick="reflectInput()" checked><label>カレー・シチュー</label>
-   <input type="radio" name="dish-type" value=2 onclick="reflectInput()"><label>サラダ</label>
-   <input type="radio" name="dish-type" value=3 onclick="reflectInput()"><label>ドリンク・デザート</label>
+   <label>料理の種類：</label>
+   <input type="radio" name="dish-type" value=1 onclick="reflectInput()" checked><label><button id="btn-curry" onclick="setDish(1)">カレー・シチュー</button></label>
+   <input type="radio" name="dish-type" value=2 onclick="reflectInput()"><label><button id="btn-salad" onclick="setDish(2)">サラダ</button></label>
+   <input type="radio" name="dish-type" value=3 onclick="reflectInput()"><label><button id="btn-drink" onclick="setDish(3)">ドリンク・デザート</button></label>
    <br>
-   <label>鍋の大きさ</label>
+   <label>鍋の大きさ：</label>
    <input type="text" id="pot-size" onblur="releaseDouble();validateAndReflectInput()"><label id="pot-size-error" style="color:red"></label>
    <label>[1~100]</label>
    <input type="checkbox" id="double-pot-size" onclick="reflectInput()"><label>一時的に2倍にする（日曜日用）</label>
@@ -439,7 +439,17 @@
         document.execCommand("Copy")
 
         document.getElementById("copy-message").innerHTML = "コピーしました"
-
+    }
+    function setDish(dishType){
+        let radioButton = document.getElementsByName("dish-type")
+        let len = Object.keys(RECIPE_TYPE).length
+        for(let i=0; i<len; i++){
+            if (i+1==dishType){
+                radioButton[i].checked = true
+                break
+            }
+        }
+        reflectInput()
     }
  </script>
 </html>
