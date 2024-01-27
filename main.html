@@ -37,7 +37,7 @@
    <h1>PokemonSleepRecipeChecker</h1>
    <label id="error-label" style="color:red"></label>
    <br>
-   <label>鍋の大きさと、使用可能な食材を選択してください。入力するたびに、作ることのできるレシピが更新ます。</label>
+   <label>鍋の大きさと、使用可能な食材を選択してください。入力するたびに、作ることのできるレシピが更新されます。</label>
    <br>
    <label>また、入力した内容はURLに記憶されます。入力後にURLをメモしておけば、次回からは入力不要です。</label>
    <br>
@@ -79,6 +79,7 @@
             <td><input type="checkbox" id="sippo" onclick="reflectInput()"><label>おいしいシッポ</label></td>
             <td><input type="checkbox" id="negi" onclick="reflectInput()"><label>ふといながねぎ</label></td>
             <td><input type="checkbox" id="potato" onclick="reflectInput()"><label>ほっこりポテト</label></td>
+            <td><input type="checkbox" id="corn" onclick="reflectInput()"><label>わかくさコーン</label></td>
         </tr>
    </table>
   <br>
@@ -101,7 +102,7 @@
  </body>
  <script>
     const URL = "./main.html"
-    const INGREDIENTS_LIST = ["negi", "kinoko", "egg", "potato", "ringo", "herv", "meat", "milk", "mitsu", "oil", "ginger", "tomato", "cacao", "sippo", "daizu"]
+    const INGREDIENTS_LIST = ["negi", "kinoko", "egg", "potato", "ringo", "herv", "meat", "milk", "mitsu", "oil", "ginger", "tomato", "cacao", "sippo", "daizu", "corn"]
     const INGREDIENTS = {
         negi	:{name:"ふといながねぎ"},
         kinoko	:{name:"あじわいキノコ"},
@@ -117,16 +118,17 @@
         tomato	:{name:"あんみんトマト"},
         cacao	:{name:"リラックスカカオ"},
         sippo	:{name:"おいしいシッポ"},
-        daizu	:{name:"ワカクサ大豆"}
+        daizu	:{name:"ワカクサ大豆"},
+        corn    :{name:"ワカクサコーン"}
     }
     const RECIPE_TYPE = {1:"CurriesAndStews", 2:"Salads", 3:"DrinksAndDesserts"}
     const RECIPE_LIST = {
         1:["recipe101", "recipe102", "recipe103", "recipe104", "recipe105", "recipe106", "recipe107", "recipe108", "recipe109", "recipe110",
-            "recipe111", "recipe112", "recipe113", "recipe114", "recipe115", "recipe116", "recipe117"],
+            "recipe111", "recipe112", "recipe113", "recipe114", "recipe115", "recipe116", "recipe117", "recipe118", "recipe119"],
         2:["recipe201", "recipe202", "recipe203", "recipe204", "recipe205", "recipe206", "recipe207", "recipe208", "recipe209", "recipe210",
-            "recipe211", "recipe212", "recipe213", "recipe214", "recipe215", "recipe216", "recipe217"],
+            "recipe211", "recipe212", "recipe213", "recipe214", "recipe215", "recipe216", "recipe217", "recipe218", "recipe219", "recipe220"],
         3:["recipe301", "recipe302", "recipe303", "recipe304", "recipe305", "recipe306", "recipe307", "recipe308", "recipe309", "recipe310",
-            "recipe311", "recipe312", "recipe313", "recipe314", "recipe315", "recipe316", "recipe317"]
+            "recipe311", "recipe312", "recipe313", "recipe314", "recipe315", "recipe316", "recipe317", "recipe318", "recipe319"]
     }
     const RECIPE_NAMES = {
         recipe101:{name:"ごちゃまぜカレー", ingredients:{}, sum:0},
@@ -146,6 +148,8 @@
         recipe115:{name:"にんじゃカレー", ingredients:{daizu:15, meat:9, negi:9, kinoko:5}, sum:38},
         recipe116:{name:"ヤドンのしっぽカレー", ingredients:{sippo:8, herv:25}, sum:33},
         recipe117:{name:"ぜったいねむりバターカレー", ingredients:{potato:18, tomato:15, cacao:12, milk:10}, sum:55},
+        recipe118:{name:"じゅうなんコーンシチュー", ingredients:{corn:14, milk:8, potato:8}, sum:30},
+        recipe119:{name:"れんごくコーンキーマカレー", ingredients:{herv:27, meat:24, corn:14, ginger:12}, sum:77},
         recipe201:{name:"ごちゃまぜサラダ", ingredients:{}, sum:0},
         recipe202:{name:"とくせんリンゴサラダ", ingredients:{ringo:8}, sum:8},
         recipe203:{name:"マメハムサラダ", ingredients:{meat:8}, sum:8},
@@ -163,6 +167,9 @@
         recipe215:{name:"キノコのほうしサラダ", ingredients:{kinoko:17, tomato:8, oil:8}, sum:33},
         recipe216:{name:"ヤドンのしっぽペッパーサラダ", ingredients:{sippo:10, herv:10, oil:15}, sum:35},
         recipe217:{name:"忍者サラダ", ingredients:{daizu:15, kinoko:12, negi:15, ginger:11}, sum:53},
+        recipe218:{name:"みだれづきコーンサラダ", ingredients:{corn:9, oil:8}, sum:17},
+        recipe219:{name:"めいそうスイートサラダ", ingredients:{ringo:21, mitsu:16, corn:12}, sum:49},
+        recipe220:{name:"ワカクササラダ", ingredients:{oil:22, corn:17, tomato:14, potato:9}, sum:62},
         recipe301:{name:"ごちゃまぜジュース", ingredients:{}, sum:0},
         recipe302:{name:"モーモーホットミルク", ingredients:{milk:7}, sum:7},
         recipe303:{name:"とくせんリンゴジュース", ingredients:{ringo:8}, sum:8},
@@ -179,7 +186,9 @@
         recipe314:{name:"あくまのキッスフルーツオレ", ingredients:{ringo:11, milk:9, mitsu:7, cacao:8}, sum:35},
         recipe315:{name:"ふくつのジンジャークッキー", ingredients:{mitsu:14, ginger:12, cacao:5, egg:4}, sum:35},
         recipe316:{name:"ネロリ博士のヒーリングティー", ingredients:{ginger:11, ringo:15, kinoko:9}, sum:35},
-        recipe317:{name:"プリンのプリンアラモード", ingredients:{mitsu:20, egg:15, milk:10, ringo:10}, sum:55}
+        recipe317:{name:"プリンのプリンアラモード", ingredients:{mitsu:20, egg:15, milk:10, ringo:10}, sum:55},
+        recipe318:{name:"だいばくはつポップコーン", ingredients:{corn:15, oil:14, milk:7}, sum:36},
+        recipe319:{name:"おちゃかいコーンスコーン", ingredients:{ringo:20, ginger:20, corn:18, milk:9}, sum:67}
     }
     const QUERYSTRING_TYPE = ["dishType", "potSize", "ingredients"]
     const POT_SIZE_MIN = 0
