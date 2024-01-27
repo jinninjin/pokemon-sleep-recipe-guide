@@ -1,0 +1,88 @@
+const URL = "./main.html"
+
+const INGREDIENTS = {
+    negi	:{name:"ふといながねぎ"},
+    kinoko	:{name:"あじわいキノコ"},
+    egg		:{name:"とくせんエッグ"},
+    potato	:{name:"ほっこりポテト"},
+    ringo	:{name:"とくせんリンゴ"},
+    herv	:{name:"げきからハーブ"},
+    meat	:{name:"マメミート"},
+    milk	:{name:"モーモーミルク"},
+    mitsu	:{name:"あまいミツ"},
+    oil		:{name:"ピュアなオイル"},
+    ginger	:{name:"あったかジンジャー"},
+    tomato	:{name:"あんみんトマト"},
+    cacao	:{name:"リラックスカカオ"},
+    sippo	:{name:"おいしいシッポ"},
+    daizu	:{name:"ワカクサ大豆"},
+    corn    :{name:"ワカクサコーン"}
+}
+
+const RECIPE_TYPE = {1:"CurriesAndStews", 2:"Salads", 3:"DrinksAndDesserts"}
+
+const RECIPE_NAMES = {
+    recipe101:{name:"ごちゃまぜカレー", ingredients:{}, sum:0},
+    recipe102:{name:"とくせんリンゴカレー", ingredients:{ringo:7}, sum:7},
+    recipe103:{name:"たんじゅんホワイトシチュー", ingredients:{milk:7}, sum:7},
+    recipe104:{name:"ベイビィハニーカレー", ingredients:{mitsu:7}, sum:7},
+    recipe105:{name:"マメバーグカレー", ingredients:{meat:7}, sum:7},
+    recipe106:{name:"満腹チーズカレー", ingredients:{milk:8, meat:8}, sum:16},
+    recipe107:{name:"ひでりカツカレー", ingredients:{meat:10, oil:5}, sum:15},
+    recipe108:{name:"サンパワートマトカレー", ingredients:{herv:5, tomato:10}, sum:15},
+    recipe109:{name:"とろけるオムカレー", ingredients:{egg:10, tomato:5}, sum:15},
+    recipe110:{name:"ほっこりポテトシチュー", ingredients:{milk:10, potato:8, kinoko:4}, sum:22},
+    recipe111:{name:"ビルドアップマメカレー", ingredients:{daizu:12, meat:6, egg:4, herv:4}, sum:26},
+    recipe112:{name:"キノコのほうしカレー", ingredients:{kinoko:14, potato:9}, sum:23},
+    recipe113:{name:"エッグボムカレー", ingredients:{mitsu:12, ringo:11, egg:8, potato:4}, sum:35},
+    recipe114:{name:"げきかれネギカレー", ingredients:{negi:14, ginger:10, herv:8}, sum:32},
+    recipe115:{name:"にんじゃカレー", ingredients:{daizu:15, meat:9, negi:9, kinoko:5}, sum:38},
+    recipe116:{name:"ヤドンのしっぽカレー", ingredients:{sippo:8, herv:25}, sum:33},
+    recipe117:{name:"ぜったいねむりバターカレー", ingredients:{potato:18, tomato:15, cacao:12, milk:10}, sum:55},
+    recipe118:{name:"じゅうなんコーンシチュー", ingredients:{corn:14, milk:8, potato:8}, sum:30},
+    recipe119:{name:"れんごくコーンキーマカレー", ingredients:{herv:27, meat:24, corn:14, ginger:12}, sum:77},
+    recipe201:{name:"ごちゃまぜサラダ", ingredients:{}, sum:0},
+    recipe202:{name:"とくせんリンゴサラダ", ingredients:{ringo:8}, sum:8},
+    recipe203:{name:"マメハムサラダ", ingredients:{meat:8}, sum:8},
+    recipe204:{name:"あんみんマトサラダ", ingredients:{tomato:8}, sum:8},
+    recipe205:{name:"ゆきかきシーザーサラダ", ingredients:{milk:10, meat:6}, sum:16},
+    recipe206:{name:"うるおいとうふサラダ", ingredients:{daizu:10, tomato:6}, sum:16},
+    recipe207:{name:"ねっぷうとうふサラダ", ingredients:{herv:6, daizu:10}, sum:16},
+    recipe208:{name:"メロメロりんごのチーズサラダ", ingredients:{ringo:15, milk:5, oil:3}, sum:23},
+    recipe209:{name:"めんえきネギサラダ", ingredients:{negi:10, ginger:5}, sum:15},
+    recipe210:{name:"モーモーカプレーゼ", ingredients:{milk:12, tomato:6, oil:5}, sum:23},
+    recipe211:{name:"からげんきサラダ", ingredients:{meat:9, ginger:6, egg:5, potato:3}, sum:23},
+    recipe212:{name:"ムラっけチョコサラダ", ingredients:{cacao:14, meat:9}, sum:23},
+    recipe213:{name:"おおぐいポテトサラダ", ingredients:{potato:14, egg:9, meat:7, ringo:6}, sum:36},
+    recipe214:{name:"オーバーヒートサラダ", ingredients:{herv:17, ginger:10, tomato:8}, sum:35},
+    recipe215:{name:"キノコのほうしサラダ", ingredients:{kinoko:17, tomato:8, oil:8}, sum:33},
+    recipe216:{name:"ヤドンのしっぽペッパーサラダ", ingredients:{sippo:10, herv:10, oil:15}, sum:35},
+    recipe217:{name:"忍者サラダ", ingredients:{daizu:15, kinoko:12, negi:15, ginger:11}, sum:53},
+    recipe218:{name:"みだれづきコーンサラダ", ingredients:{corn:9, oil:8}, sum:17},
+    recipe219:{name:"めいそうスイートサラダ", ingredients:{ringo:21, mitsu:16, corn:12}, sum:49},
+    recipe220:{name:"ワカクササラダ", ingredients:{oil:22, corn:17, tomato:14, potato:9}, sum:62},
+    recipe301:{name:"ごちゃまぜジュース", ingredients:{}, sum:0},
+    recipe302:{name:"モーモーホットミルク", ingredients:{milk:7}, sum:7},
+    recipe303:{name:"とくせんリンゴジュース", ingredients:{ringo:8}, sum:8},
+    recipe304:{name:"クラフトサイコソーダ", ingredients:{mitsu:9}, sum:9},
+    recipe305:{name:"ねがいごとアップルパイ", ingredients:{ringo:12, milk:4}, sum:16},
+    recipe306:{name:"じゅくせいスイートポテト", ingredients:{potato:9, milk:5}, sum:14},
+    recipe307:{name:"ひのこのジンジャーティー", ingredients:{ginger:9, ringo:7}, sum:16},
+    recipe308:{name:"マイペースやさいジュース", ingredients:{tomato:9, ringo:7}, sum:16},
+    recipe309:{name:"かるわざソイケーキ", ingredients:{egg:8, daizu:7}, sum:15},
+    recipe310:{name:"おおきいマラサダ", ingredients:{oil:10, milk:7, mitsu:6}, sum:23},
+    recipe311:{name:"はりきりプロテインスムージー", ingredients:{daizu:15, cacao:8}, sum:23},
+    recipe312:{name:"ちからもちソイドーナッツ", ingredients:{oil:9, daizu:6, cacao:7}, sum:22},
+    recipe313:{name:"あまいかおりのチョコケーキ", ingredients:{mitsu:9, cacao:8, milk:7}, sum:24},
+    recipe314:{name:"あくまのキッスフルーツオレ", ingredients:{ringo:11, milk:9, mitsu:7, cacao:8}, sum:35},
+    recipe315:{name:"ふくつのジンジャークッキー", ingredients:{mitsu:14, ginger:12, cacao:5, egg:4}, sum:35},
+    recipe316:{name:"ネロリ博士のヒーリングティー", ingredients:{ginger:11, ringo:15, kinoko:9}, sum:35},
+    recipe317:{name:"プリンのプリンアラモード", ingredients:{mitsu:20, egg:15, milk:10, ringo:10}, sum:55},
+    recipe318:{name:"だいばくはつポップコーン", ingredients:{corn:15, oil:14, milk:7}, sum:36},
+    recipe319:{name:"おちゃかいコーンスコーン", ingredients:{ringo:20, ginger:20, corn:18, milk:9}, sum:67}
+}
+
+const QUERYSTRING_TYPE = ["dishType", "potSize", "ingredients"]
+const POT_SIZE_MIN = 0
+const POT_SIZE_MAX = 100
+const OPTIONS = ["double-pot-size"]
