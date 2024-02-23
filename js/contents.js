@@ -79,7 +79,9 @@ const RECIPE_NAMES = {
     recipe316:{name:"ネロリのデトックスティー", ingredients:{ginger:11, ringo:15, kinoko:9}, sum:35},
     recipe317:{name:"プリンのプリンアラモード", ingredients:{mitsu:20, egg:15, milk:10, ringo:10}, sum:55},
     recipe318:{name:"だいばくはつポップコーン", ingredients:{corn:15, oil:14, milk:7}, sum:36},
-    recipe319:{name:"おちゃかいコーンスコーン", ingredients:{ringo:20, ginger:20, corn:18, milk:9}, sum:67}
+    recipe319:{name:"おちゃかいコーンスコーン", ingredients:{ringo:20, ginger:20, corn:18, milk:9}, sum:67},
+    recipe320:{name:"はなびらのまいチョコタルト", ingredients:{cacao:11, ringo:11}, sum:22},
+    recipe321:{name:"フラワーギフトマカロン", ingredients:{cacao:25, milk:10, egg:25, mitsu:17}, sum:77}
 }
 
 const QUERYSTRING_TYPE = ["dishType", "potSize", "ingredients"]
