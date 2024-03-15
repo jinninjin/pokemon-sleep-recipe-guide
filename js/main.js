@@ -295,3 +295,26 @@ function toggle(id){
         radio.checked = true
     }
 }
+
+function changeIngredients(type){
+    const queryString = (() => {
+        const queryStringWithQuestion = window.location.search
+        if (queryStringWithQuestion.length===0){
+            return ""
+        }else{
+            return queryStringWithQuestion.substring(1)
+        }
+    })()
+    const dishType = getValueFromQueryString(queryString, "dishType")
+    const potSize = getValueFromQueryString(queryString, "potSize")
+    const options = getValueFromQueryString(queryString, "options")
+    let url
+    if (type==="SELECTALL"){
+        url = URL + "?dishType=" + dishType + "&potSize=" + potSize + "&ingredients=" + SELECT_ALL_QUERY_STRING + "&options=" + options
+    }else if(type==="RELEASEALL"){
+        url = URL + "?dishType=" + dishType + "&potSize=" + potSize + "&ingredients=" + RELEASE_ALL_QUERY_STRING + "&options=" + options
+    }else{
+        url = URL + "?dishType=" + dishType + "&potSize=" + potSize + "&ingredients=" + DEFAULT_QUERY_STRING + "&options=" + options
+    }
+    redirect(url)
+}
