@@ -181,7 +181,12 @@ function addToTable(recipe, tableId){
         content = "None"
     }
     cell1.innerHTML = content
-    cell2.innerHTML = recipe["sum"]
+    if (recipe["sum"]<document.getElementById("pot-size").value){
+        cell2.innerHTML = recipe["sum"]
+    }else{
+        cell2.innerHTML = "<span>" + recipe["sum"] + "</span>"
+    }
+    
 }
 function reflectInput(){
     try{
