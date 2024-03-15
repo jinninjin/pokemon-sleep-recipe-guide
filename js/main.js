@@ -282,3 +282,11 @@ function setDish(dishType){
     }
     reflectInput()
 }
+function toggle(id){
+    let radio = document.getElementById(id)
+    if (radio.checked){
+        radio.checked = false
+    }else{
+        radio.checked = true
+    }
+}
