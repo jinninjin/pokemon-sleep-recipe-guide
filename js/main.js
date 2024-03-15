@@ -158,10 +158,11 @@ function showTable(queryString){
             addToTable(recipe, "canCook")
         }
     }
+
 }
 function addToTable(recipe, tableId){
     let table = document.getElementById(tableId)
-    let newRow = table.insertRow(-1)
+    let newRow = table.insertRow(1)
     let cell0 = newRow.insertCell(0)
     let cell1 = newRow.insertCell(1)
     let cell2 = newRow.insertCell(2)
