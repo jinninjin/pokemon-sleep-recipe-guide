@@ -121,7 +121,7 @@ function setOptions(options){
     }else{
         elem.checked = false
     }
-    }
+}
 function releaseDouble(){
     const elem = document.getElementById("double-pot-size")
     elem.checked = false
@@ -153,9 +153,9 @@ function showTable(queryString){
             }
         }
         if (flg===0){
-            addToTable(recipe, "canNotCook")
+            addToTable(recipe, "canNotCook", )
         }else{
-            addToTable(recipe, "canCook")
+            addToTable(recipe, "canCook", )
         }
     }
 
@@ -169,7 +169,12 @@ function addToTable(recipe, tableId){
     cell0.innerHTML = recipe.name
     let content = []
     for (ingredient in recipe.ingredients){
-        content.push(INGREDIENTS[ingredient]["name"] + ":" + recipe["ingredients"][ingredient])
+        if (document.getElementById(ingredient).checked===true){
+            content.push(INGREDIENTS[ingredient]["name"] + ":" + recipe["ingredients"][ingredient])
+        }else{
+            content.push("<span>" + INGREDIENTS[ingredient]["name"] + ":" + recipe["ingredients"][ingredient] + "</span>")
+        }
+        
     }
     content.join("、")
     if (content.length===0){
